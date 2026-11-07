@@ -1,0 +1,13 @@
+ARCHS = arm64
+TARGET = iphone:clang:latest:14.0
+
+include $(THEOS)/makefiles/common.mk
+
+BUNDLE_NAME = AgoraRecorderPrefs
+AgoraRecorderPrefs_FILES = ../RecordingsListController.m
+AgoraRecorderPrefs_INSTALL_PATH = /Library/PreferenceLoader/Preferences
+AgoraRecorderPrefs_FRAMEWORKS = UIKit AVFoundation
+AgoraRecorderPrefs_PRIVATE_FRAMEWORKS = Preferences
+AgoraRecorderPrefs_CFLAGS = -fobjc-arc -I..
+
+include $(THEOS_MAKE_PATH)/bundle.mk
